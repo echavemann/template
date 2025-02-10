@@ -1,0 +1,30 @@
+name: CI - Unit Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  cpp-unit-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install the latest version of uv
+      uses: astral-sh/setup-uv@v5
+      with:
+        version: "latest"
+
+    - name: Install Conan and Ninja
+      run: |
+        uv tool install conan
+        uv tool install ninja
+        conan profile detect
+        bash < .github/scripts/conan-profile.sh
+
+    - name: Run unit tests
+      run: make test
