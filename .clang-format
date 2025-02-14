@@ -4,7 +4,7 @@ UseTab: Never
 ColumnLimit: 160
 BreakBeforeBraces: Allman
 SeparateDefinitionBlocks: Always
-BreakTemplateDeclarations: Yes
+# BreakTemplateDeclarations: Yes
 BraceWrapping:
   AfterClass: true
   AfterControlStatement: true
