@@ -1,0 +1,21 @@
+BasedOnStyle: LLVM
+IndentWidth: 4
+UseTab: Never
+ColumnLimit: 160
+BreakBeforeBraces: Allman
+SeparateDefinitionBlocks: Always
+# BreakTemplateDeclarations: Yes
+BraceWrapping:
+  AfterClass: true
+  AfterControlStatement: true
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterStruct: true
+  AfterUnion: true
+  BeforeCatch: true
+  BeforeElse: true
+  IndentBraces: false
+
+IndentRequiresClause: false
+
