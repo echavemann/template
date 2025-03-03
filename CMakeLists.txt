@@ -25,21 +25,21 @@ add_executable(template ${MAIN} ${HEADERS})
 add_executable(template_tests ${TESTS} ${HEADERS})
 add_executable(template_debug ${MAIN} ${HEADERS})
 
-SET(TARGETS template)
+SET(RELEASE_TARGETS template)
 SET(TEST_TARGETS template_tests)
 SET(DEBUG_TARGETS template_debug)
 
-foreach (target ${TARGETS} ${TEST_TARGETS} ${DEBUG_TARGETS})
-    target_include_directories(${target} PUBLIC src)
-    target_link_libraries(${target} PRIVATE ${PACKAGES})
-endforeach()
-
-foreach (target ${TARGETS})
+foreach (target ${RELEASE_TARGETS})
     target_compile_options(${target} PRIVATE ${RELEASE_FLAGS})
 endforeach()
 
 foreach (target ${TEST_TARGETS} ${DEBUG_TARGETS})
     target_compile_options(${target} PRIVATE ${DEBUG_FLAGS})
+endforeach()
+
+foreach (target ${RELEASE_TARGETS} ${TEST_TARGETS} ${DEBUG_TARGETS})
+    target_include_directories(${target} PUBLIC src)
+    target_link_libraries(${target} PRIVATE ${PACKAGES})
 endforeach()
 
 # Gtest
