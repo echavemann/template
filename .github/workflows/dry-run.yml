@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  cpp-unit-tests:
+  cpp-dry-run:
     runs-on: ubuntu-latest
 
     steps:
