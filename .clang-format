@@ -18,4 +18,5 @@ BraceWrapping:
   IndentBraces: false
 
 IndentRequiresClause: false
+AllowShortFunctionsOnASingleLine: None
 
