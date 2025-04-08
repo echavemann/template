@@ -29,18 +29,19 @@ SET(RELEASE_TARGETS template)
 SET(TEST_TARGETS template_tests)
 SET(DEBUG_TARGETS template_debug)
 
-foreach (target ${RELEASE_TARGETS})
-    target_compile_options(${target} PRIVATE ${RELEASE_FLAGS})
+foreach (target ${TEST_TARGETS})
+    target_link_libraries(${target} PRIVATE gtest::gtest)
 endforeach()
 
 foreach (target ${TEST_TARGETS} ${DEBUG_TARGETS})
     target_compile_options(${target} PRIVATE ${DEBUG_FLAGS})
 endforeach()
 
+foreach (target ${RELEASE_TARGETS})
+    target_compile_options(${target} PRIVATE ${RELEASE_FLAGS})
+endforeach()
+
 foreach (target ${RELEASE_TARGETS} ${TEST_TARGETS} ${DEBUG_TARGETS})
     target_include_directories(${target} PUBLIC src)
     target_link_libraries(${target} PRIVATE ${PACKAGES})
 endforeach()
-
-# Gtest
-target_link_libraries(template_tests PRIVATE gtest::gtest)
