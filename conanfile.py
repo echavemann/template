@@ -7,7 +7,7 @@ class TemplateRecipe(ConanFile):
     generators = "CMakeDeps", "CMakeToolchain"
 
     def requirements(self):
-        self.requires("gtest/1.15.0")
+        self.requires("gtest/1.17.0")
         self.requires("fmt/11.2.0")
 
     def layout(self):
